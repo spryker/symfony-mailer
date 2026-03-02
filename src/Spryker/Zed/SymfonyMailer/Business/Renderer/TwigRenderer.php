@@ -38,10 +38,6 @@ class TwigRenderer implements RendererInterface
      */
     protected $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\SymfonyMailer\Dependency\Renderer\SymfonyMailerToRendererInterface $renderer
-     * @param \Spryker\Zed\SymfonyMailer\Dependency\Facade\SymfonyMailerToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         SymfonyMailerToRendererInterface $renderer,
         SymfonyMailerToLocaleFacadeInterface $localeFacade
@@ -50,11 +46,6 @@ class TwigRenderer implements RendererInterface
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MailTransfer $mailTransfer
-     *
-     * @return void
-     */
     public function render(MailTransfer $mailTransfer): void
     {
         $this->setupTranslation($mailTransfer);
@@ -63,11 +54,6 @@ class TwigRenderer implements RendererInterface
         $this->renderHtmlTemplate($mailTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MailTransfer $mailTransfer
-     *
-     * @return void
-     */
     protected function setupTranslation(MailTransfer $mailTransfer): void
     {
         if (!$mailTransfer->getLocale()) {
@@ -77,11 +63,6 @@ class TwigRenderer implements RendererInterface
         $this->renderer->setLocaleTransfer($mailTransfer->getLocaleOrFail());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MailTransfer $mailTransfer
-     *
-     * @return void
-     */
     protected function renderTextTemplate(MailTransfer $mailTransfer): void
     {
         foreach ($mailTransfer->requireTemplates()->getTemplates() as $templateTransfer) {
@@ -94,11 +75,6 @@ class TwigRenderer implements RendererInterface
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MailTransfer $mailTransfer
-     *
-     * @return void
-     */
     protected function renderHtmlTemplate(MailTransfer $mailTransfer): void
     {
         foreach ($mailTransfer->requireTemplates()->getTemplates() as $templateTransfer) {

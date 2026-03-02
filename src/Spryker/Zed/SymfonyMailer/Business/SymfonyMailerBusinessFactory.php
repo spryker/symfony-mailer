@@ -24,9 +24,6 @@ use Spryker\Zed\SymfonyMailer\SymfonyMailerDependencyProvider;
  */
 class SymfonyMailerBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\Dependency\External\SymfonyMailerToMailerInterface
-     */
     public function createSymfonyMailerAdapter(): SymfonyMailerToMailerInterface
     {
         return new SymfonyMailerToSymfonyMailerAdapter(
@@ -36,9 +33,6 @@ class SymfonyMailerBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\Business\Renderer\RendererInterface
-     */
     public function createRenderer(): RendererInterface
     {
         return new TwigRenderer(
@@ -47,9 +41,6 @@ class SymfonyMailerBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\Business\Translator\TranslatorInterface
-     */
     public function createTranslator(): TranslatorInterface
     {
         return new GlossaryTranslator(
@@ -57,25 +48,16 @@ class SymfonyMailerBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\Dependency\Facade\SymfonyMailerToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): SymfonyMailerToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(SymfonyMailerDependencyProvider::FACADE_LOCALE);
     }
 
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\Dependency\Renderer\SymfonyMailerToRendererInterface
-     */
     public function getRenderer(): SymfonyMailerToRendererInterface
     {
         return $this->getProvidedDependency(SymfonyMailerDependencyProvider::RENDERER);
     }
 
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\Dependency\Facade\SymfonyMailerToGlossaryFacadeInterface
-     */
     public function getGlossaryFacade(): SymfonyMailerToGlossaryFacadeInterface
     {
         return $this->getProvidedDependency(SymfonyMailerDependencyProvider::FACADE_GLOSSARY);

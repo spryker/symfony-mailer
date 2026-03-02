@@ -36,11 +36,6 @@ class SymfonyMailerToRendererBridge implements SymfonyMailerToRendererInterface
         return $this->twigEnvironment->render($template, $context);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
     public function setLocaleTransfer(LocaleTransfer $localeTransfer): void
     {
         /** @var \Spryker\Zed\Glossary\Communication\Plugin\TwigTranslatorPlugin $translator */

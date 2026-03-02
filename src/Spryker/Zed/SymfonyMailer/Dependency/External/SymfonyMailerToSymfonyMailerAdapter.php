@@ -55,11 +55,6 @@ class SymfonyMailerToSymfonyMailerAdapter implements SymfonyMailerToMailerInterf
      */
     protected SymfonyMailerConfig $config;
 
-    /**
-     * @param \Spryker\Zed\SymfonyMailer\Business\Renderer\RendererInterface $renderer
-     * @param \Spryker\Zed\SymfonyMailer\Business\Translator\TranslatorInterface $translator
-     * @param \Spryker\Zed\SymfonyMailer\SymfonyMailerConfig $config
-     */
     public function __construct(
         RendererInterface $renderer,
         TranslatorInterface $translator,
@@ -72,11 +67,6 @@ class SymfonyMailerToSymfonyMailerAdapter implements SymfonyMailerToMailerInterf
         $this->mailer = new Mailer($this->createEsmtpTransport());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MailTransfer $mailTransfer
-     *
-     * @return void
-     */
     public function send(MailTransfer $mailTransfer): void
     {
         $this->renderer->render($mailTransfer);
@@ -93,9 +83,6 @@ class SymfonyMailerToSymfonyMailerAdapter implements SymfonyMailerToMailerInterf
         $this->mailer->send($this->email);
     }
 
-    /**
-     * @return \Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport
-     */
     protected function createEsmtpTransport(): EsmtpTransport
     {
         return (new EsmtpTransport(
@@ -219,11 +206,6 @@ class SymfonyMailerToSymfonyMailerAdapter implements SymfonyMailerToMailerInterf
         return $this;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MailTransfer $mailTransfer
-     *
-     * @return void
-     */
     protected function addAttachments(MailTransfer $mailTransfer): void
     {
         foreach ($mailTransfer->getAttachments() as $mailAttachmentTransfer) {
@@ -237,11 +219,6 @@ class SymfonyMailerToSymfonyMailerAdapter implements SymfonyMailerToMailerInterf
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MailAttachmentTransfer $mailAttachmentTransfer
-     *
-     * @return void
-     */
     protected function processLocalFile(MailAttachmentTransfer $mailAttachmentTransfer): void
     {
         $resource = fopen($mailAttachmentTransfer->getFileNameOrFail(), 'r');

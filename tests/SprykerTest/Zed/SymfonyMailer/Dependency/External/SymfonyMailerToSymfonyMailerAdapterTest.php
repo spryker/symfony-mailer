@@ -110,9 +110,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
      */
     protected const EMAIL = 'email';
 
-    /**
-     * @return void
-     */
     public function testSendAddsSubjectToEmail(): void
     {
         //Arrange
@@ -141,9 +138,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         $this->assertEquals(static::SUBJECT, $symfonyEmail->getSubject());
     }
 
-    /**
-     * @return void
-     */
     public function testSendAddsSenderToEmail(): void
     {
         //Arrange
@@ -160,9 +154,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         $this->assertEquals(static::FROM_NAME, $symfonyEmail->getFrom()[0]->getName());
     }
 
-    /**
-     * @return void
-     */
     public function testSendAddsRecipientToEmail(): void
     {
         //Arrange
@@ -211,9 +202,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         }
     }
 
-    /**
-     * @return array
-     */
     public function getBccsDataProvider(): array
     {
         return [
@@ -247,9 +235,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         ];
     }
 
-    /**
-     * @return void
-     */
     public function testSendExpectsBccEmail(): void
     {
         //Arrange
@@ -265,9 +250,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         $symfonyMailerToSymfonyMailerAdapterMock->send($mailTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testSendAddsHtmlContentToEmail(): void
     {
         //Arrange
@@ -283,9 +265,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         $this->assertEquals(static::HTML_MAIL_CONTENT, $symfonyEmail->getHtmlBody());
     }
 
-    /**
-     * @return void
-     */
     public function testSendAddsTextContentToEmail(): void
     {
         //Arrange
@@ -372,9 +351,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         ];
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MailTransfer
-     */
     protected function haveMailTransfer(): MailTransfer
     {
         $mailTransfer = new MailTransfer();
@@ -442,19 +418,11 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
         return $this->getMockBuilder(TranslatorInterface::class)->getMock();
     }
 
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\SymfonyMailerConfig
-     */
     protected function getConfig(): SymfonyMailerConfig
     {
         return new SymfonyMailerConfig();
     }
 
-    /**
-     * @param \Spryker\Zed\SymfonyMailer\Dependency\External\SymfonyMailerToMailerInterface $symfonyMailerToSymfonyMailerAdapterMock
-     *
-     * @return \Symfony\Component\Mime\Email
-     */
     protected function getReflectedEmailData(SymfonyMailerToMailerInterface $symfonyMailerToSymfonyMailerAdapterMock): Email
     {
         $reflectedAdapterMock = new ReflectionClass($symfonyMailerToSymfonyMailerAdapterMock);

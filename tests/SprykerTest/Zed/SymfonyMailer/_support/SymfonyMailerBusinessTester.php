@@ -29,9 +29,6 @@ class SymfonyMailerBusinessTester extends Actor
 {
     use _generated\SymfonyMailerBusinessTesterActions;
 
-    /**
-     * @return \Spryker\Zed\SymfonyMailer\Dependency\Facade\SymfonyMailerToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): SymfonyMailerToLocaleFacadeInterface
     {
         return new SymfonyMailerToLocaleFacadeBridge($this->getLocator()->locale()->facade());

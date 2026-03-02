@@ -20,11 +20,5 @@ interface SymfonyMailerToGlossaryFacadeInterface
      */
     public function translate(string $keyName, array $data = [], ?LocaleTransfer $localeTransfer = null): string;
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer|null $localeTransfer
-     *
-     * @return bool
-     */
     public function hasTranslation(string $keyName, ?LocaleTransfer $localeTransfer = null): bool;
 }

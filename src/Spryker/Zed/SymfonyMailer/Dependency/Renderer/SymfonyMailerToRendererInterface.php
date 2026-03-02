@@ -19,10 +19,5 @@ interface SymfonyMailerToRendererInterface
      */
     public function render(string $template, array $context = []): string;
 
-    /**
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return void
-     */
     public function setLocaleTransfer(LocaleTransfer $localeTransfer): void;
 }

@@ -75,9 +75,6 @@ class TwigRendererTest extends Unit
      */
     protected const LOCALE = 'en_US';
 
-    /**
-     * @return void
-     */
     public function testHydrateMailCallsTwigsRenderMethodWithTextTemplate(): void
     {
         //Arrange
@@ -95,9 +92,6 @@ class TwigRendererTest extends Unit
         $this->assertSame(static::FAKE_TEXT_TEMPLATE, $mailTemplateTextTransfer->getContent());
     }
 
-    /**
-     * @return void
-     */
     public function testHydrateMailCallsTwigsRenderMethodWithHtmlTemplate(): void
     {
         //Arrange
@@ -147,9 +141,6 @@ class TwigRendererTest extends Unit
         return new SymfonyMailerToRendererBridge($twigEnvironmentMock);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MailTransfer
-     */
     protected function getMailTransfer(): MailTransfer
     {
         $mailTransfer = new MailTransfer();
@@ -164,27 +155,16 @@ class TwigRendererTest extends Unit
         return $mailTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MailTemplateTransfer
-     */
     protected function getMailTemplateTransferText(): MailTemplateTransfer
     {
         return $this->getMailTemplateTransfer(false);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MailTemplateTransfer
-     */
     protected function getMailTemplateTransferHtml(): MailTemplateTransfer
     {
         return $this->getMailTemplateTransfer(true);
     }
 
-    /**
-     * @param bool $isHtml
-     *
-     * @return \Generated\Shared\Transfer\MailTemplateTransfer
-     */
     protected function getMailTemplateTransfer(bool $isHtml): MailTemplateTransfer
     {
         $mailTemplateTransfer = new MailTemplateTransfer();

@@ -17,9 +17,6 @@ class GlossaryTranslator implements TranslatorInterface
      */
     protected $glossaryFacade;
 
-    /**
-     * @param \Spryker\Zed\SymfonyMailer\Dependency\Facade\SymfonyMailerToGlossaryFacadeInterface $glossaryFacade
-     */
     public function __construct(SymfonyMailerToGlossaryFacadeInterface $glossaryFacade)
     {
         $this->glossaryFacade = $glossaryFacade;
