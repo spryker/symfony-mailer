@@ -427,7 +427,6 @@ class SymfonyMailerToSymfonyMailerAdapterTest extends Unit
     {
         $reflectedAdapterMock = new ReflectionClass($symfonyMailerToSymfonyMailerAdapterMock);
         $emailProperty = $reflectedAdapterMock->getProperty(static::EMAIL);
-        $emailProperty->setAccessible(true);
 
         return $emailProperty->getValue($symfonyMailerToSymfonyMailerAdapterMock);
     }
